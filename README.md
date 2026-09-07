@@ -1,9 +1,7 @@
 # 🎬 Movie Recommender System
 
 A content-based movie recommender system built with **pandas**, **scikit-learn**
-(`CountVectorizer` + `cosine_similarity`), and a **Streamlit** web UI — same stack
-and layout as the classic [Movie-Recommender-System-Using-Machine-Learning](https://github.com/entbappy/Movie-Recommender-System-Using-Machine-Learning)
-project, rebuilt from scratch.
+(`CountVectorizer` + `cosine_similarity`), and a **Streamlit** web UI
 
 ## How it works
 
