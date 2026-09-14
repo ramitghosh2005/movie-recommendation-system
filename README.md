@@ -9,7 +9,7 @@ The system recommends movies similar to a movie selected by the user by analyzin
 ## 🚀 Live Demo
 
 🔗 **Streamlit App:**  
-_Add your Streamlit deployment URL here_
+https://movie-recommendation-system-h68tjn9jwbvboue2ixrmhe.streamlit.app/
 
 ---
 
@@ -47,3 +47,6 @@ Cosine Similarity
 Rating-Based Re-ranking
       ↓
 Top Movie Recommendations
+
+<img width="1906" height="903" alt="image" src="https://github.com/user-attachments/assets/a232c63c-a527-4329-a6f1-7a612883fa5b" />
+
