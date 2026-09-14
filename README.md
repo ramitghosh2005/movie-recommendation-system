@@ -1,104 +1,49 @@
-# 🎬 Movie Recommender System
+# 🎬 Movie Recommendation System
 
-A content-based movie recommender system built with **pandas**, **scikit-learn**
-(`CountVectorizer` + `cosine_similarity`), and a **Streamlit** web UI
+A content-based movie recommendation system built using **Python, Pandas, Scikit-learn, and Streamlit**.
 
-## How it works
+The system recommends movies similar to a movie selected by the user by analyzing movie metadata such as genres, themes, directors, actors, and descriptions.
 
-Each movie's overview, genres, keywords, cast, and crew are combined into a single
-`tags` string, stemmed with NLTK's `PorterStemmer`, vectorized with
-`CountVectorizer(max_features=5000, stop_words="english")`, and compared pairwise
-with `cosine_similarity`. Given a movie, the app returns the 5 most similar titles.
+---
 
-## Project structure
+## 🚀 Live Demo
 
-```
-movie-recommender-system/
-├── artifacts/                     # generated .pkl model artifacts (created on first run)
-├── data/
-│   └── movies.csv                 # sample dataset (30 movies) — swap for the full TMDB 5000 set
-├── notebook/
-│   └── Movie_Recommender_System_Data_Analysis.ipynb
-├── demo/                          # app screenshots
-├── src/mrs/
-│   ├── components/
-│   │   ├── data_ingestion.py
-│   │   ├── data_transformation.py
-│   │   └── model_trainer.py
-│   ├── pipeline/
-│   │   └── training_pipeline.py
-│   ├── logger.py
-│   ├── exception.py
-│   └── utils.py
-├── app.py                         # Streamlit app
-├── requirements.txt
-├── setup.py
-├── setup.sh                       # Streamlit config for cloud deployment
-├── Procfile                       # for Heroku-style platforms
-└── LICENSE
-```
+🔗 **Streamlit App:**  
+_Add your Streamlit deployment URL here_
 
-## Dataset
+---
 
-This repo ships with a small 30-movie sample (`data/movies.csv`) so the pipeline
-runs end-to-end out of the box. For a real app, swap it for the
-[TMDB 5000 Movie Dataset](https://www.kaggle.com/tmdb/tmdb-movie-metadata) from
-Kaggle — keep the same column names (`movie_id`, `title`, `overview`, `genres`,
-`keywords`, `cast`, `crew`) or adjust `data_transformation.py` accordingly.
+## 📌 Project Overview
 
-## How to run
+This project implements a **content-based filtering recommendation system**.
 
-### 1. Clone and create an environment
+Instead of relying on ratings from other users, the system analyzes the characteristics of movies and finds movies with similar content.
 
-```bash
-git clone <your-repo-url>
-cd movie-recommender-system
-conda create -n mrs python=3.10 -y
-conda activate mrs
-```
+For example, if a user searches for:
 
-### 2. Install requirements
+> `Interstellar`
 
-```bash
-pip install -r requirements.txt
-```
+the system identifies movies with similar genres, themes, directors, actors, and descriptions and recommends the most similar titles.
 
-### 3. Generate the model artifacts
+---
 
-Either run the training pipeline:
+## 🧠 How It Works
 
-```bash
-python -m src.mrs.pipeline.training_pipeline
-```
+The recommendation pipeline consists of the following steps:
 
-or run the notebook `notebook/Movie_Recommender_System_Data_Analysis.ipynb` cell by
-cell — both produce `artifacts/movie_list.pkl` and `artifacts/similarity.pkl`.
-
-### 4. Launch the app
-
-```bash
-streamlit run app.py
-```
-
-### Optional: real posters
-
-Set a free [TMDB API key](https://www.themoviedb.org/settings/api) as an
-environment variable to show real poster art instead of placeholders:
-
-```bash
-export TMDB_API_KEY=your_key_here   # Windows: set TMDB_API_KEY=your_key_here
-```
-
-## Deploying
-
-**Streamlit Community Cloud** (recommended, free): push this repo to GitHub, go to
-[share.streamlit.io](https://share.streamlit.io), point it at `app.py`, and add
-`TMDB_API_KEY` under app settings → secrets. Make sure `artifacts/*.pkl` exist —
-either commit them or add a build step that runs the training pipeline first.
-
-**Heroku-style platforms**: the included `Procfile` and `setup.sh` run
-`streamlit run app.py` behind the platform's assigned `$PORT`.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+```text
+Movie Dataset
+      ↓
+Data Preprocessing
+      ↓
+Combine Movie Metadata
+      ↓
+TF-IDF Vectorization
+      ↓
+Nearest Neighbors
+      ↓
+Cosine Similarity
+      ↓
+Rating-Based Re-ranking
+      ↓
+Top Movie Recommendations
